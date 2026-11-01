@@ -1,44 +1,41 @@
-# 📈 StockScout AI
+# StockScout AI
 
-**Local LLM-powered stock screening using natural language.**
+A local LLM agent that converts natural-language stock queries into structured screening criteria and ranks stocks using financial data.
 
-StockScout AI lets you describe the stocks you're looking for in plain English. A locally running LLM agent converts your query into structured screening criteria, then filters and ranks stocks using real financial data. No cloud APIs and no data leaving your machine.
+## Problem
+Stock screeners need manual filter settings (P/E, market cap, growth, etc.). StockScout AI lets a user type a query such as "[example query]" and applies the matching filters automatically.
 
-## ✨ Features
+## Method
+1. **Query parsing:** A local LLM ([model name, e.g. Llama / Mistral via Ollama]) converts the query into structured criteria ([JSON / schema]).
+2. **Data:** Financial data is pulled from [source, e.g. yfinance] for [number] stocks.
+3. **Filtering and ranking:** Stocks are filtered and ranked using user-defined metrics ([list metrics]).
+4. **Interface:** [CLI / Streamlit / other].
 
-- 🗣️ **Natural-language queries**: e.g., *"Find large-cap tech stocks with P/E under 25 and revenue growth above 10%"*
-- 🤖 **Local LLM agent**: runs fully offline for privacy and zero API cost
-- 🧩 **Structured criteria extraction**: converts free text into machine-readable filters (JSON)
-- 📊 **Financial data integration**: pulls fundamentals and market metrics automatically
-- 🏆 **Automated filtering & ranking**: sorts results by user-defined metrics
+## Evaluation
+- Tested on [number] sample queries.
+- Parsing accuracy: [x/y queries produced correct criteria].
+- Failure cases: [e.g. ambiguous queries, unsupported metrics].
 
-## 🛠️ Tech Stack
+(If you did no formal evaluation, write: "Evaluated manually on sample queries; formal benchmarking is future work.")
 
-- **Language:** Python
-- **LLM:** Local model (e.g., Ollama / Llama / Mistral)
-- **Data:** Financial data API (e.g., yfinance)
-- **Libraries:** pandas, requests, etc.
+## Limitations
+- Depends on the quality of the local LLM's parsing.
+- Financial data may be delayed or incomplete.
+- Not financial advice.
 
-## 🚀 How It Works
-
-1. **User enters a query** in natural language
-2. **LLM agent parses it** into structured screening criteria
-3. **Financial data is fetched** for the stock universe
-4. **Filters are applied** and stocks are ranked by chosen metrics
-5. **Results are displayed** in a clean table
-
-## 📦 Installation
-
+## Setup
 ```bash
-git clone https://github.com/<your-username>/StockScout-AI.git
-cd StockScout-AI
+git clone [your repo link]
+cd stockscout-ai
 pip install -r requirements.txt
+python app.py
 ```
 
-## ▶️ Usage
+## Tech Stack
+Python, [LLM runtime], [data library], [interface library]
 
-```bash
-python main.py
-```
+## Future Work
+- [e.g. more metrics, query validation, backtesting]
 
-Example query:
+## Author
+Gopika K, M.Sc. Data Science, Madras School of Economics
